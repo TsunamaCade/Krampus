@@ -1,0 +1,349 @@
+fileFormatVersion: 2
+guid: 288b433be82187b4184e0ff3faa70d64
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 2GlassDoorCabinet1
+    second: {fileID: 2800000, guid: f0c7d5f450bc7af41a784f7e491a2e72, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 2GlassDoorCabinet2
+    second: {fileID: 2800000, guid: f1b6b09d7622ee94ab683d48323e4d7b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ConcreteTilesPoured002_COL_1K
+    second: {fileID: 2800000, guid: d917cf0e3c0ad3842a901d34b43d6e19, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ConcreteTilesPoured002_GLOSS_1K
+    second: {fileID: 2800000, guid: a596d8c840c5cc946a26b382e64836a1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: ConcreteTilesPoured002_NRM_1K
+    second: {fileID: 2800000, guid: 5bdca7232bb81c2428ab8593f64f31df, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: GroundGrassFieldGreen001_COL_1K
+    second: {fileID: 2800000, guid: e2893120b1f63074394efe8f9d4561e9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: GroundGrassFieldGreen001_GLOSS_1K
+    second: {fileID: 2800000, guid: 6bd896dc53e095847874b53d5fa868fe, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: GroundGrassFieldGreen001_NRM_1K
+    second: {fileID: 2800000, guid: 722b8e3432e07184fb91ae0879efdd5e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: GroundGrassFieldGreen001_REFL_1K
+    second: {fileID: 2800000, guid: 5348794511c189046a5d0b792f2a174c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: LakeMoraine
+    second: {fileID: 2800000, guid: 8f28eacb60c4ddf4f84277061fc52cf0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TC_roof_01_NORMAL
+    second: {fileID: 2800000, guid: 088d8385172e97b459fc077b7a5b5bd3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TC_roof_01_ROOFCOLOR_16
+    second: {fileID: 2800000, guid: 9e82f38d622a4564896692c3f10f6da9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: TC_roof_01_SPECULAR
+    second: {fileID: 2800000, guid: 290da831e811b344a9d5e545f56e7881, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_01_BC
+    second: {fileID: 2800000, guid: b329874d3ae35be4a8655eec64feaa98, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_01_N
+    second: {fileID: 2800000, guid: 72a3239379bb9684a9353e0e25fb3b1b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_01_S
+    second: {fileID: 2800000, guid: e25e80a0bf842644f8c59724646ae795, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_02_BC
+    second: {fileID: 2800000, guid: 1bae6649c6843584dbf777f45bad9c86, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_02_N
+    second: {fileID: 2800000, guid: f5ca0e8d6c9624446a0511aa5874e87a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_02_S
+    second: {fileID: 2800000, guid: 052623105696c0e40b534d3d57ef410f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_03_BC
+    second: {fileID: 2800000, guid: 2a193145c61191242a08326b3cb9ac9f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_03_N
+    second: {fileID: 2800000, guid: 69063fa798d1b4649a9c24ac881e410b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_interior_tiles_03_S
+    second: {fileID: 2800000, guid: 61157dc0b136d5d42b2c587191c0014f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_parquet_01_BC
+    second: {fileID: 2800000, guid: 3cfe6f5ac7f90b94c85e9533cd9f55d0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: T_TC_parquet_01_N
+    second: {fileID: 2800000, guid: df5fe79fd9e2cc74faae9fcfeca7f89e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Wood1
+    second: {fileID: 2800000, guid: 21b4036b67c401b4eb059ee009c1d611, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: crisp_paper_ruffle_color_07
+    second: {fileID: 2800000, guid: a173ff228e71a694880c640fd4271632, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: dark_wood
+    second: {fileID: 2800000, guid: b47a437ec89ab98469bc40c0e0baba02, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: desserte_Pin
+    second: {fileID: 2800000, guid: 3334a9c2dc276a449b09f233c3ceb5b2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: desserte_Tiles
+    second: {fileID: 2800000, guid: 52580a953596fbb41a96735e99554543, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: episcura_brick_modern_COLOR
+    second: {fileID: 2800000, guid: 27392c633b3dee146b47b44302027184, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: episcura_brick_modern_NRM
+    second: {fileID: 2800000, guid: af3da5da4c5da734cbdc3e25a6575caa, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: episcura_brick_modern_SPEC
+    second: {fileID: 2800000, guid: 1f73e8711246bc04c8cd4786288f89b2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fireplace1
+    second: {fileID: 2800000, guid: 7c676a1ea451cd144a27c5584705ab88, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: greyfloral_color_07
+    second: {fileID: 2800000, guid: fa54ba13b1b999e45b15c33526a61496, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: grilled_color_13
+    second: {fileID: 2800000, guid: 03d869c868df6e9449a80b9b46845118, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: kidajean_color_07
+    second: {fileID: 2800000, guid: 4889e7e0c459dc743b7eadb147f38acf, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: plster_white_COLOR
+    second: {fileID: 2800000, guid: ad5c0fb475e5c484a9473d6bcaf19b2e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: plster_white_NRM
+    second: {fileID: 2800000, guid: 1dd8d7d82cb60254aa42461c0a9aae15, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: purty_wood_@2X_dddddd_color_07
+    second: {fileID: 2800000, guid: b1956a50a2029794f90067c75814984c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: purty_wood_@2X_ddddddd_color_11
+    second: {fileID: 2800000, guid: 388eb5fda9a07c249bb4233dfe3871e2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: purty_wood_@2X_ddddddd_color_12
+    second: {fileID: 2800000, guid: 5ef0b344dc09d984782bc66cb75eae5a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: spatifilumList
+    second: {fileID: 2800000, guid: 1fbc5f321425b344091d49d6ee3e33fd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: tilewood
+    second: {fileID: 2800000, guid: 3925437c3f9f033419b4d76fb696575f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_floor_COLOR
+    second: {fileID: 2800000, guid: 8821ccd25a8248e4fb3174b07a45f63f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_floor_NRM
+    second: {fileID: 2800000, guid: 09cd52f092624824b9750a42ea2609c9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wood_floor_SPEC
+    second: {fileID: 2800000, guid: 0b86e8b666aa67449bf287605730d790, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: xv_color_00
+    second: {fileID: 2800000, guid: 90bb30340ce1805488d560dac449378e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: xv_color_17
+    second: {fileID: 2800000, guid: 096e346161bc8004d8763bc96abe54f2, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
