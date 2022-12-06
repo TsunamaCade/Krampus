@@ -14,8 +14,10 @@ public class Movement : MonoBehaviour
     [SerializeField] private float crouchSpeed = 3;
 
     private Vector3 lastPos;
+    [SerializeField] private bool isMoving;
+    [SerializeField] private bool hasRan;
 
-    [SerializeField] private float normalHeight = 3f;
+    [SerializeField] private float normalHeight = 2.8f;
     [SerializeField] private float crouchHeight = 1.5f;
     [SerializeField] private bool isCrouched = false;
 
@@ -55,26 +57,30 @@ public class Movement : MonoBehaviour
         if(this.transform.position != lastPos)
         {
             anim.SetBool("isWalking", true);
+            isMoving = true;
         }
         else
         {
             anim.SetBool("isWalking", false);
+            isMoving = false;
         }
 
 
         //Run
-        if(Input.GetButtonDown("Run"))
+        if(Input.GetButtonDown("Run") && isMoving == true)
         {
             speed = sprintSpeed;
             controller.height = normalHeight;
             isCrouched = false;
             anim.SetBool("isRunning", true);
+            anim.SetBool("isWalking", false);
         }
 
         if(Input.GetButtonUp("Run"))
         {
             speed = normSpeed;
             anim.SetBool("isRunning", false);
+            anim.SetBool("isWalking", true);
         }
 
 
