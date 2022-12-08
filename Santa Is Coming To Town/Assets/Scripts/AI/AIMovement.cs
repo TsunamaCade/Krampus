@@ -92,6 +92,7 @@ public class AIMovement : MonoBehaviour
         canWander = false;
         canSeePlayer = false;
         yield return new WaitForSeconds(Random.Range(2f, 5f));
+        Debug.Log("Moving");
         canWander = true;
     }
 
@@ -109,24 +110,12 @@ public class AIMovement : MonoBehaviour
         canWander = false;
         wandering = false;
         canSeePlayer = false;
-        float furthestDist = 50f;
 
-        foreach (Transform movetowards in moveLocations)
-        {
-            float dist = (movetowards.position - transform.position).sqrMagnitude;
+        Index = Random.Range(0, moveLocations.Length);
+        moveTo = moveLocations[Index].position;
+        AI.Warp(moveTo);
+        StartCoroutine(MoveAgain());
 
-            if(dist>furthestDist)
-            {
-                AI.SetDestination(movetowards.position);
-                Move(runSpeed);
-            }
-        }
-
-        if(distanceLeft <= 1)
-        {
-            Debug.Log("Met");
-            StartCoroutine(MoveAgain());
-        }
     }
 
     IEnumerator ViewRepeat()
@@ -145,10 +134,12 @@ public class AIMovement : MonoBehaviour
         if(player.GetComponent<Interactions>().isOn == true)
         {
             angle = 360f;
+            radius = radius * 2;
         }
         else if(player.GetComponent<Interactions>().isOn == false)
         {
             angle = 100f;
+            radius = radius / 2;
         }
 
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, playerMask);
