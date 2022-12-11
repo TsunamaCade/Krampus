@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Interactions : MonoBehaviour
 {
+    //Flashlight Variables
     [SerializeField] private GameObject flashlight;
-    [SerializeField] private GameObject gift;
     [SerializeField] public bool isOn = false;
-    [SerializeField] private bool getGift;
+
+    //Gift Variables
+    [SerializeField] private GameObject gift;
+    [SerializeField] private Transform giftHoldLocation;
+    [SerializeField] private Transform player;
+    [SerializeField] private bool hasGift = false;
 
     void Update()
     {
@@ -28,19 +33,20 @@ public class Interactions : MonoBehaviour
         }
 
         //Opening Present
-        if(getGift == false)
+        if(hasGift == false)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 2f))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5f))
             {
                 if(hit.transform.CompareTag("Box"))
                 {
                     if(hit.transform.GetComponent<OpenBox>().opened == false)
                     {
-                        if(Input.GetButtonDown("Fire1"))
+                        if(Input.GetButtonDown("Interact"))
                         {
                             hit.transform.GetComponent<OpenBox>().opened = true;
-                            getGift = true;
+                            hasGift = true;
+                            Instantiate(gift, player, false);
                         }
                     }
                     else if(hit.transform.GetComponent<OpenBox>().opened == true)
@@ -52,22 +58,12 @@ public class Interactions : MonoBehaviour
                 }
             }
         }
-
-        if(getGift == true)
+        if(hasGift == true)
         {
-            gift.SetActive(true);
-            StartCoroutine(HaveGift());
-        }
-    }
-
-    IEnumerator HaveGift()
-    {
-        yield return new WaitForSeconds(0.5f);
-        if(Input.GetButtonDown("Fire1"))
-        {
-            yield return new WaitForSeconds(1.001f);
-            gift.SetActive(false);
-            getGift = false;
+            if(Input.GetButtonDown("Fire1"))
+            {
+                hasGift = false;
+            }
         }
     }
 }

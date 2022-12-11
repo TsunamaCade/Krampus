@@ -103,7 +103,7 @@ public class AIMovement : MonoBehaviour
         Move(runSpeed);
     }
 
-    //Run Away
+    //Teleport Away
     public void Flee()
     {
         isFleeing = true;

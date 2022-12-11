@@ -7,6 +7,8 @@ public class FireGift : MonoBehaviour
     [SerializeField] private Transform arrowObj;
     [SerializeField] private Transform arrowSet;
     [SerializeField] private Rigidbody arrowRb;
+
+    [SerializeField] private GameObject crossbow;
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))
@@ -14,15 +16,13 @@ public class FireGift : MonoBehaviour
             arrowRb.isKinematic = false;
             arrowRb.useGravity = true;
             arrowRb.AddForce(transform.up * 25f);
-            StartCoroutine(ReplaceArrow());
+            StartCoroutine(DestroyGift());
         }
     }
 
-    IEnumerator ReplaceArrow()
+    IEnumerator DestroyGift()
     {
         yield return new WaitForSeconds(1f);
-        arrowRb.isKinematic = true;
-        arrowRb.useGravity = false;
-        arrowObj.transform.position = arrowSet.position;
+        Destroy(crossbow);
     }
 }
