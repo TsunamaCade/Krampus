@@ -7,6 +7,9 @@ public class BoxLocationRandomizer : MonoBehaviour
     [SerializeField] private Transform[] boxes;
     [SerializeField] private Transform[] boxLocations;
 
+    [SerializeField] private GameObject santa;
+    [SerializeField] private GameObject thisObj;
+
     void OnTriggerEnter(Collider player)
     {
         if(player.CompareTag("Player"))
@@ -16,7 +19,8 @@ public class BoxLocationRandomizer : MonoBehaviour
                 box.rotation = new Quaternion(0f, 0f, 0f, 0f);
                 box.position = boxLocations[Random.Range(0, boxLocations.Length)].position;
             }
-            this.enabled = false;
+            thisObj.SetActive(false);
+            santa.SetActive(true);
         }
     }
 }

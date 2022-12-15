@@ -29,13 +29,21 @@ public class AIMovement : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private LayerMask obstuctionMask;
 
+    //Animation Variables
+    [SerializeField] private Animator anim;
+    [SerializeField] private Transform santaAvatar;
+    [SerializeField] private Transform runningPosition;
+    [SerializeField] private Transform normalPosition;
+
     //Misc Variables
-    [SerializeField] public Transform player;
+    [SerializeField] private Transform player;
+    [SerializeField] private Camera cam;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(ViewRepeat());
+        santaAvatar.position = normalPosition.position;
     }
 
     void Update()
@@ -48,12 +56,16 @@ public class AIMovement : MonoBehaviour
             if(canWander == true && canSeePlayer == false)
             {
                 StartCoroutine(ChangeLocation());
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isRunning", false);
             }
 
             if(wandering == true)
             {
                 if(distanceLeft <= 0 || AI.velocity.magnitude <=0)
                 {
+                    anim.SetBool("isWalking", false);
+                    anim.SetBool("isRunning", false);
                     StartCoroutine(MoveAgain());
                 }
             }
@@ -62,7 +74,14 @@ public class AIMovement : MonoBehaviour
             if(canSeePlayer == true)
             {
                 AI.ResetPath();
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isRunning", true);
+                santaAvatar.position = runningPosition.position;
                 Chase();
+            }
+            else if(canSeePlayer == false)
+            {
+                santaAvatar.position = normalPosition.position;
             }
         }
     }
@@ -131,12 +150,12 @@ public class AIMovement : MonoBehaviour
 
     void ViewCheck()
     {
-        if(player.GetComponent<Interactions>().isOn == true)
+        if(cam.GetComponent<Interactions>().isOn == true)
         {
             angle = 360f;
             radius = radius * 2;
         }
-        else if(player.GetComponent<Interactions>().isOn == false)
+        else if(cam.GetComponent<Interactions>().isOn == false)
         {
             angle = 100f;
             radius = radius / 2;

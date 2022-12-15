@@ -36,7 +36,7 @@ public class Interactions : MonoBehaviour
         if(hasGift == false)
         {
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 5f))
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3f))
             {
                 if(hit.transform.CompareTag("Box"))
                 {
@@ -65,5 +65,12 @@ public class Interactions : MonoBehaviour
                 hasGift = false;
             }
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Vector3 direction = transform.TransformDirection(Vector3.forward) * 3;
+        Gizmos.DrawRay(transform.position, direction);
     }
 }
