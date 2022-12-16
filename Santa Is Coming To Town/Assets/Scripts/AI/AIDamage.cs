@@ -8,6 +8,7 @@ public class AIDamage : MonoBehaviour
     [SerializeField] private bool canBeDamaged = true;
     [SerializeField] private AIMovement move;
     [SerializeField] private GameObject santa;
+    [SerializeField] private ParticleSystem damageFX;
 
     void Update()
     {
@@ -23,6 +24,7 @@ public class AIDamage : MonoBehaviour
         {
             health -= 1;
             canBeDamaged = false;
+            Instantiate(damageFX, santa.transform.position, Quaternion.identity);
             move.Flee();
             StartCoroutine(DamageTime());
         }
