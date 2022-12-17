@@ -116,7 +116,7 @@ public class AIMovement : MonoBehaviour
     }
 
     //Chase
-    void Chase()
+    public void Chase()
     {
         AI.SetDestination(player.position);
         Move(runSpeed);
@@ -153,12 +153,12 @@ public class AIMovement : MonoBehaviour
         if(cam.GetComponent<Interactions>().isOn == true)
         {
             angle = 360f;
-            radius = radius * 2;
+            radius = 20f;
         }
         else if(cam.GetComponent<Interactions>().isOn == false)
         {
             angle = 100f;
-            radius = radius / 2;
+            radius = 10f;
         }
 
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, playerMask);
