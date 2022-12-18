@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Interactions : MonoBehaviour
 {
-    //Flashlight Variables
-    [SerializeField] private GameObject flashlight;
-    [SerializeField] public bool isOn = false;
-
     //Gift Variables
     [SerializeField] private GameObject gift;
     [SerializeField] private Transform giftHoldLocation;
@@ -16,22 +12,6 @@ public class Interactions : MonoBehaviour
 
     void Update()
     {
-
-        //Flashlight
-        if(Input.GetButtonDown("Flashlight"))
-        {
-            isOn = !isOn;
-        }
-
-        if(isOn == true)
-        {
-            flashlight.SetActive(true);
-        }
-        else
-        {
-            flashlight.SetActive(false);
-        }
-
         //Opening Present
         if(hasGift == false)
         {
@@ -65,12 +45,5 @@ public class Interactions : MonoBehaviour
                 hasGift = false;
             }
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Vector3 direction = transform.TransformDirection(Vector3.forward) * 3;
-        Gizmos.DrawRay(transform.position, direction);
     }
 }

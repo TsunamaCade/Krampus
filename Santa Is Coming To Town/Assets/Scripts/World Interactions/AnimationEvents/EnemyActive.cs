@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyActive : MonoBehaviour
 {
     [SerializeField] private GameObject santa;
+    [SerializeField] private GameObject attackArea;
+    [SerializeField] private GameObject introGrabArea;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject cam;
     [SerializeField] private GameObject thisObj;
@@ -16,7 +18,6 @@ public class EnemyActive : MonoBehaviour
         if(player.CompareTag("Player"))
         {
             //santa.SetActive(true);
-            player.GetComponent<CharacterController>().enabled = false;
             player.GetComponent<Movement>().enabled = false;
             cam.GetComponent<MouseLook>().mouseSensitivity = 0f;
             disappearFX.Play();
@@ -27,15 +28,17 @@ public class EnemyActive : MonoBehaviour
 
     IEnumerator EnableMovement()
     {
+        thisObj.transform.GetComponent<BoxCollider>().enabled = false;
         yield return new WaitForSeconds(4f);
         santa.SetActive(true);
         yield return new WaitForSeconds(0.25f);
-        santa.transform.GetComponent<AIMovement>().Chase();
-        yield return new WaitForSeconds(20f);
+        santa.transform.GetComponent<AIMovement>().IntroMove();
+        yield return new WaitForSeconds(15f);
         anim.SetBool("startIntro", false);
-        thisObj.SetActive(false);
-        player.GetComponent<CharacterController>().enabled = true;
+        attackArea.SetActive(true);
+        introGrabArea.SetActive(false);
         player.GetComponent<Movement>().enabled = true;
         cam.GetComponent<MouseLook>().mouseSensitivity = 100f;
+        yield return new WaitForSeconds(0.5f);
     }
 }

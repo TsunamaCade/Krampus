@@ -35,6 +35,8 @@ public class AIMovement : MonoBehaviour
     [SerializeField] private Transform runningPosition;
     [SerializeField] private Transform normalPosition;
 
+    public bool introHasEntered = false;
+
     //Misc Variables
     [SerializeField] private Transform player;
     [SerializeField] private Camera cam;
@@ -84,6 +86,13 @@ public class AIMovement : MonoBehaviour
                 santaAvatar.position = normalPosition.position;
             }
         }
+
+        if(introHasEntered == true)
+        {
+            anim.SetBool("isWalking", false);
+            anim.SetBool("introStarted", true);
+            StartCoroutine(EndIntroAnimation());
+        }
     }
 
 
@@ -122,6 +131,34 @@ public class AIMovement : MonoBehaviour
         Move(runSpeed);
     }
 
+    public void IntroMove()
+    {
+        isFleeing = true;
+
+        AI.SetDestination(player.position);
+        AI.stoppingDistance = 3f;
+        Move(walkSpeed);
+        santaAvatar.position = normalPosition.position;
+        anim.SetBool("isWalking", true);
+        anim.SetBool("isRunning", false);
+    }
+
+    IEnumerator EndIntroAnimation()
+    {
+        AI.ResetPath();
+        AI.isStopped = true;
+        yield return new WaitForSeconds(4f);
+        Index = Random.Range(0, moveLocations.Length);
+        moveTo = moveLocations[Index].position;
+        introHasEntered = false;
+        anim.SetBool("introStarted", false);
+
+        AI.Warp(moveTo);
+        canWander = false;
+        canSeePlayer = false;
+        isFleeing = false;
+    }
+
     //Teleport Away
     public void Flee()
     {
@@ -150,12 +187,12 @@ public class AIMovement : MonoBehaviour
 
     void ViewCheck()
     {
-        if(cam.GetComponent<Interactions>().isOn == true)
+        if(cam.GetComponent<Flashlight>().isOn == true)
         {
             angle = 360f;
             radius = 20f;
         }
-        else if(cam.GetComponent<Interactions>().isOn == false)
+        else if(cam.GetComponent<Flashlight>().isOn == false)
         {
             angle = 100f;
             radius = 10f;
