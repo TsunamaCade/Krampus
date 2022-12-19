@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Arrow
+  - Flashlight
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - FirstFloor
   - SecondFloor
   - Player
-  - 
+  - Interactable
   - 
   - 
   - 

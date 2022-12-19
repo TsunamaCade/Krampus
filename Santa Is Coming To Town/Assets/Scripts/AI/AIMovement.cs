@@ -148,9 +148,8 @@ public class AIMovement : MonoBehaviour
         AI.ResetPath();
         AI.isStopped = true;
         yield return new WaitForSeconds(4f);
-        Index = Random.Range(0, moveLocations.Length);
-        moveTo = moveLocations[Index].position;
         introHasEntered = false;
+        moveTo = moveLocations[8].position;
         anim.SetBool("introStarted", false);
 
         AI.Warp(moveTo);

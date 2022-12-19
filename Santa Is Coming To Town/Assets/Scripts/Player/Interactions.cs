@@ -10,13 +10,23 @@ public class Interactions : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private bool hasGift = false;
 
+    //Flashlight Variables
+    [SerializeField] private Flashlight fl;
+
+    //Misc Variables
+    [SerializeField] private GameObject grabImage;
+    [SerializeField] private LayerMask mask;
+
     void Update()
     {
+        RaycastHit hit;
+
         //Opening Present
-        if(hasGift == false)
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3f, mask))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3f))
+            grabImage.SetActive(true);
+
+            if(hasGift == false)
             {
                 if(hit.transform.CompareTag("Box"))
                 {
@@ -33,11 +43,24 @@ public class Interactions : MonoBehaviour
                     {
                         return;
                     }
+                }
+            }
 
-                    
+            //Picking Up Flashlight
+            if(hit.transform.CompareTag("Flashlight"))
+            {
+                if(Input.GetButtonDown("Interact"))
+                {
+                    fl.enabled = true;
+                    hit.transform.gameObject.SetActive(false);
                 }
             }
         }
+        else
+        {
+            grabImage.SetActive(false);
+        }
+        
         if(hasGift == true)
         {
             if(Input.GetButtonDown("Fire1"))
@@ -45,5 +68,7 @@ public class Interactions : MonoBehaviour
                 hasGift = false;
             }
         }
+
+        
     }
 }

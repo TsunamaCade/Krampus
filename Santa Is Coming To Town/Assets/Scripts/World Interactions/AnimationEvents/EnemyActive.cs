@@ -17,7 +17,9 @@ public class EnemyActive : MonoBehaviour
     {
         if(player.CompareTag("Player"))
         {
-            //santa.SetActive(true);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isCrouched", false);
             player.GetComponent<Movement>().enabled = false;
             cam.GetComponent<MouseLook>().mouseSensitivity = 0f;
             disappearFX.Play();
@@ -33,7 +35,8 @@ public class EnemyActive : MonoBehaviour
         santa.SetActive(true);
         yield return new WaitForSeconds(0.25f);
         santa.transform.GetComponent<AIMovement>().IntroMove();
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(14f);
+        player.transform.rotation = new Quaternion(player.transform.rotation.x, player.transform.rotation.y + 270f, player.transform.rotation.z, player.transform.rotation.w);
         anim.SetBool("startIntro", false);
         attackArea.SetActive(true);
         introGrabArea.SetActive(false);
