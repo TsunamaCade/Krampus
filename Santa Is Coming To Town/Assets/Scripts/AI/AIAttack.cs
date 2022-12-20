@@ -11,6 +11,7 @@ public class AIAttack : MonoBehaviour
         if(player.CompareTag("Player"))
         {
             gm.YouLose();
+            this.gameObject.SetActive(false);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AIDamage : MonoBehaviour
 {
-    [SerializeField] private double health = 4;
+    [SerializeField] public double health = 4;
     [SerializeField] private bool canBeDamaged = true;
     [SerializeField] private AIMovement move;
     [SerializeField] private GameObject santa;
