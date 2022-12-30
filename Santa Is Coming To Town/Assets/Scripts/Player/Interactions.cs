@@ -44,7 +44,7 @@ public class Interactions : MonoBehaviour
                             hit.transform.GetComponent<OpenBox>().opened = true;
                             hasGift = true;
                             Instantiate(gift, player, false);
-                            aS.PlayOneShot(openPresent, 1);
+                            aS.PlayOneShot(openPresent, 0.25f);
                             usePresent.SetActive(true);
                             StartCoroutine(Disable());
                         }

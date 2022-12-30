@@ -14,6 +14,8 @@ public class EnemyActive : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private AudioSource boxDisappear;
 
+    [SerializeField] private GameObject RunCrouch;
+
     void OnTriggerEnter(Collider player)
     {
         if(player.CompareTag("Player"))
@@ -45,5 +47,8 @@ public class EnemyActive : MonoBehaviour
         player.GetComponent<Movement>().enabled = true;
         cam.GetComponent<MouseLook>().mouseSensitivity = 100f;
         yield return new WaitForSeconds(0.5f);
+        RunCrouch.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        RunCrouch.SetActive(false);
     }
 }

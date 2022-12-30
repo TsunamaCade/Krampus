@@ -9,12 +9,13 @@ public class RestartGame : MonoBehaviour
     [SerializeField] private GameObject santa;
     [SerializeField] private GameObject santaAttackCollider;
     [SerializeField] private AIDamage aiD;
-    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject gameOverScreen, winScreen;
     
     public void Restart()
     {
         Cursor.lockState = CursorLockMode.Locked;
         gameOverScreen.SetActive(false);
+        winScreen.SetActive(false);
         foreach(GameObject box in boxes)
         {
             box.transform.GetComponent<OpenBox>().opened = false;
