@@ -4,28 +4,35 @@ using UnityEngine;
 
 public class Interactions : MonoBehaviour
 {
-    //Gift Variables
+    [Header("Gift Variables")]
     [SerializeField] private GameObject gift;
     [SerializeField] private Transform giftHoldLocation;
     [SerializeField] private Transform player;
     [SerializeField] private bool hasGift = false;
 
-    //Flashlight Variables
+    [SerializeField] private GameObject usePresent, HUD;
+
+    [Header("Flashlight Variables")]
     [SerializeField] private Flashlight fl;
 
-    //Misc Variables
+    [Header("Bed Variables")]
+    [SerializeField] private GameObject secretEndScreen;
+
+    [Header("Misc Variables")]
     [SerializeField] private GameObject grabImage;
     [SerializeField] private LayerMask mask;
+    [SerializeField] private AudioSource aS;
+    [SerializeField] private AudioClip openPresent;
 
     void Update()
     {
         RaycastHit hit;
 
-        //Opening Present
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 3f, mask))
         {
             grabImage.SetActive(true);
 
+            //Opening Present
             if(hasGift == false)
             {
                 if(hit.transform.CompareTag("Box"))
@@ -37,6 +44,9 @@ public class Interactions : MonoBehaviour
                             hit.transform.GetComponent<OpenBox>().opened = true;
                             hasGift = true;
                             Instantiate(gift, player, false);
+                            aS.PlayOneShot(openPresent, 1);
+                            usePresent.SetActive(true);
+                            StartCoroutine(Disable());
                         }
                     }
                     else if(hit.transform.GetComponent<OpenBox>().opened == true)
@@ -55,6 +65,18 @@ public class Interactions : MonoBehaviour
                     hit.transform.gameObject.SetActive(false);
                 }
             }
+
+            //Going Back To Bed
+            if(hit.transform.CompareTag("Bed"))
+            {
+                if(Input.GetButtonDown("Interact"))
+                {
+                    grabImage.SetActive(false);
+                    player.gameObject.SetActive(false);
+                    secretEndScreen.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                }
+            }
         }
         else
         {
@@ -68,7 +90,12 @@ public class Interactions : MonoBehaviour
                 hasGift = false;
             }
         }
+    }
 
-        
+    IEnumerator Disable()
+    {
+        yield return new WaitForSeconds(4f);
+        usePresent.SetActive(false);
+        HUD.SetActive(false);
     }
 }

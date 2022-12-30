@@ -10,24 +10,26 @@ public class AIDamage : MonoBehaviour
     [SerializeField] private GameObject santa;
     [SerializeField] private ParticleSystem damageFX;
 
-    void Update()
-    {
-        if(health <= 0)
-        {
-            santa.SetActive(false);
-        }
-    }
+    [SerializeField] private AudioSource disappearSound;
+
+    [SerializeField] private YouWin yw;
 
     void OnTriggerEnter(Collider arrow)
     {
-        if(arrow.CompareTag("Arrow") && canBeDamaged == true)
+        if(arrow.CompareTag("Arrow") && canBeDamaged == true && health > 1f)
         {
             health -= 1;
             canBeDamaged = false;
             Instantiate(damageFX, santa.transform.position, Quaternion.identity);
+            disappearSound.Play();
             move.Flee();
             StartCoroutine(DamageTime());
         }
+        else if(arrow.CompareTag("Arrow") && canBeDamaged == true && health == 1f)
+        {
+            yw.EndGame();
+        }
+
     }
 
     IEnumerator DamageTime()

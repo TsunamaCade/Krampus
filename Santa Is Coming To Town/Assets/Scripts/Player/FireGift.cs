@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class FireGift : MonoBehaviour
 {
-    [SerializeField] private Transform arrowObj;
-    [SerializeField] private Transform arrowSet;
     [SerializeField] private Rigidbody arrowRb;
     [SerializeField] private CapsuleCollider arrowCol;
 
     [SerializeField] private GameObject crossbow;
 
+    [SerializeField] private AudioSource arrow;
+
     void Start()
     {
         arrowCol.enabled = false;
+        
     }
     void Update()
     {
@@ -23,6 +24,7 @@ public class FireGift : MonoBehaviour
             arrowRb.useGravity = true;
             arrowRb.AddForce(transform.up * 25f);
             arrowCol.enabled = true;
+            arrow.Play();
             StartCoroutine(DestroyGift());
         }
     }

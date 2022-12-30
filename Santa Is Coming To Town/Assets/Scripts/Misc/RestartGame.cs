@@ -31,6 +31,7 @@ public class RestartGame : MonoBehaviour
         santa.SetActive(true);
         santaAttackCollider.SetActive(true);
         santa.GetComponent<AIMovement>().Flee();
+        santa.GetComponent<AIMovement>().Start();
         aiD.health = 5;
     }
 }

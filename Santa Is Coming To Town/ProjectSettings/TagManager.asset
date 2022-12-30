@@ -7,6 +7,7 @@ TagManager:
   - Box
   - Arrow
   - Flashlight
+  - Bed
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,7 @@ public class EnemyActive : MonoBehaviour
     [SerializeField] private GameObject thisObj;
     [SerializeField] private ParticleSystem disappearFX;
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioSource boxDisappear;
 
     void OnTriggerEnter(Collider player)
     {
@@ -23,6 +24,7 @@ public class EnemyActive : MonoBehaviour
             player.GetComponent<Movement>().enabled = false;
             cam.GetComponent<MouseLook>().mouseSensitivity = 0f;
             disappearFX.Play();
+            boxDisappear.Play();
             anim.SetBool("startIntro", true);
             StartCoroutine(EnableMovement());
         }
@@ -36,7 +38,7 @@ public class EnemyActive : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         santa.transform.GetComponent<AIMovement>().IntroMove();
         yield return new WaitForSeconds(14f);
-        player.transform.rotation = new Quaternion(player.transform.rotation.x, player.transform.rotation.y + 270f, player.transform.rotation.z, player.transform.rotation.w);
+        player.transform.rotation = new Quaternion(0, 180, 0, 0);
         anim.SetBool("startIntro", false);
         attackArea.SetActive(true);
         introGrabArea.SetActive(false);

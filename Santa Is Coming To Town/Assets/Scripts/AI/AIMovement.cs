@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class AIMovement : MonoBehaviour
 {
-    //Movement Variables
+    [Header("Movement Variables")]
     [SerializeField] private Transform[] moveLocations;
     [SerializeField] private Vector3 moveTo;
     [SerializeField] private NavMeshAgent AI;
@@ -13,15 +13,16 @@ public class AIMovement : MonoBehaviour
     [SerializeField] private float walkSpeed = 6f;
     [SerializeField] private float runSpeed = 6f;
 
-    //State Variables
+    [Header("State Variables")]
     [SerializeField] private float distanceLeft;
 
     [SerializeField] private bool canWander = true;
     [SerializeField] private bool wandering = false;
     [SerializeField] public bool canSeePlayer = false;
+    [SerializeField] private bool hasChased = false;
     [SerializeField] private bool isFleeing = false;
 
-    //View Variables
+    [Header("View Variables")]
     [SerializeField] public float radius;
     [Range(0,360)]
     [SerializeField] public float angle;
@@ -29,7 +30,7 @@ public class AIMovement : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private LayerMask obstuctionMask;
 
-    //Animation Variables
+    [Header("Animation Variables")]
     [SerializeField] private Animator anim;
     [SerializeField] private Transform santaAvatar;
     [SerializeField] private Transform runningPosition;
@@ -37,15 +38,16 @@ public class AIMovement : MonoBehaviour
 
     public bool introHasEntered = false;
 
-    //Misc Variables
+    [Header("Misc Variables")]
     [SerializeField] private Transform player;
     [SerializeField] private Camera cam;
 
-    void Start()
+    public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(ViewRepeat());
         santaAvatar.position = normalPosition.position;
+        isFleeing = true;
     }
 
     void Update()
@@ -58,32 +60,30 @@ public class AIMovement : MonoBehaviour
             if(canWander == true && canSeePlayer == false)
             {
                 StartCoroutine(ChangeLocation());
-                anim.SetBool("isWalking", true);
-                anim.SetBool("isRunning", false);
             }
 
             if(wandering == true)
             {
                 if(distanceLeft <= 0 || AI.velocity.magnitude <=0)
                 {
-                    anim.SetBool("isWalking", false);
-                    anim.SetBool("isRunning", false);
                     StartCoroutine(MoveAgain());
                 }
             }
 
             //Chase
-            if(canSeePlayer == true)
+            if(canSeePlayer == true && hasChased == false)
             {
+                hasChased = true;
                 AI.ResetPath();
-                anim.SetBool("isWalking", false);
-                anim.SetBool("isRunning", true);
                 santaAvatar.position = runningPosition.position;
                 Chase();
             }
-            else if(canSeePlayer == false)
+            if(canSeePlayer == false && hasChased == true)
             {
+                hasChased = false;
+                AI.ResetPath();
                 santaAvatar.position = normalPosition.position;
+                StartCoroutine(MoveAgain());
             }
         }
 
@@ -104,23 +104,26 @@ public class AIMovement : MonoBehaviour
 
     IEnumerator ChangeLocation()
     {
+        anim.SetBool("isRunning", false);
         canWander = false;
         Index = Random.Range(0, moveLocations.Length);
         moveTo = moveLocations[Index].position;
         AI.SetDestination(moveTo);
         yield return new WaitForSeconds(1f);
         Move(walkSpeed);
+        anim.SetBool("isWalking", true);
         wandering = true;
     }
 
     IEnumerator MoveAgain()
     {
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isRunning", false);
         isFleeing = false;
         wandering = false;
         canWander = false;
         canSeePlayer = false;
         yield return new WaitForSeconds(Random.Range(2f, 5f));
-        Debug.Log("Moving");
         canWander = true;
     }
 
@@ -129,12 +132,14 @@ public class AIMovement : MonoBehaviour
     {
         AI.SetDestination(player.position);
         Move(runSpeed);
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isRunning", true);
     }
 
     public void IntroMove()
     {
+        canSeePlayer = false;
         isFleeing = true;
-
         AI.SetDestination(player.position);
         AI.stoppingDistance = 3f;
         Move(walkSpeed);
